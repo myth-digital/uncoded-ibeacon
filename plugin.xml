@@ -94,13 +94,14 @@
 
         <config-file target="AndroidManifest.xml" parent="/manifest">
 			<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+			<uses-permission android:name="android.permission.BLUETOOTH" />
         </config-file>
 
         <source-file src="src/android/LocationManager.java" target-dir="src/com/unarin/cordova/beacon" />
         <source-file src="src/android/IBeaconServiceNotifier.java" target-dir="src/com/unarin/cordova/beacon" />
         <source-file src="src/android/ILocationManagerCommand.java" target-dir="src/com/unarin/cordova/beacon" />
         <source-file src="src/android/PausableThreadPoolExecutor.java" target-dir="src/com/unarin/cordova/beacon" />
-
         <framework src="src/android/cordova-plugin-ibeacon.gradle" custom="true" type="gradleReference" />
         <framework src="com.android.support:support-core-utils:26+" />
     </platform>
