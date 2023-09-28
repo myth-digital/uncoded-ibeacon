@@ -64,6 +64,8 @@ const int CDV_LOCATION_MANAGER_INPUT_PARSE_ERROR = 100;
  */
 - (void)onDomDelegateReady:(CDVInvokedUrlCommand*)command;
 
+- (void)initPlugin:(CDVInvokedUrlCommand*)command;
+
 - (void)startMonitoringForRegion:(CDVInvokedUrlCommand*)command;
 - (void)stopMonitoringForRegion:(CDVInvokedUrlCommand*)command;
 - (void)requestStateForRegion:(CDVInvokedUrlCommand*)command;

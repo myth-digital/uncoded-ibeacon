@@ -230,6 +230,14 @@ LocationManager.prototype.onDomDelegateReady = function() {
 };
 
 /**
+ * Delay the init to stop bluetooth permission popping up on iOS 13.
+ * @returns {Q.Promise} Returns a promise which is resolved when the plugin has initialised.
+ */
+LocationManager.prototype.initPlugin = function() {
+	return this._promisedExec('initPlugin', [], []);
+};
+
+/**
  * Determines if bluetooth is switched on, according to the native layer.
  * @returns {Q.Promise} Returns a promise which is resolved with a {Boolean}
  * indicating whether bluetooth is active.

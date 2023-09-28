@@ -32,7 +32,7 @@
     [self pauseEventPropagationToDom]; // Before the DOM is loaded we'll just keep collecting the events and fire them later.
 
     [self initLocationManager];
-    [self initPeripheralManager];
+    //[self initPeripheralManager];
     
     self.debugLogEnabled = true;
     self.debugNotificationsEnabled = false;
@@ -232,6 +232,16 @@
         
         return [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } :command];
+}
+
+- (void)initPlugin:(CDVInvokedUrlCommand*)command {
+    [self _handleCallSafely:^CDVPluginResult *(CDVInvokedUrlCommand * command) {
+
+        [self initPeripheralManager];
+
+        return [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    } :command];
+
 }
 
 - (void)disableDebugLogs:(CDVInvokedUrlCommand*)command {
