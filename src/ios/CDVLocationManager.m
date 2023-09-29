@@ -31,7 +31,7 @@
     [self initEventQueue];
     [self pauseEventPropagationToDom]; // Before the DOM is loaded we'll just keep collecting the events and fire them later.
 
-    [self initLocationManager];
+    //[self initLocationManager];
     //[self initPeripheralManager];
     
     self.debugLogEnabled = true;
@@ -40,8 +40,10 @@
 }
 
 - (void) initLocationManager {
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
+    if (self.locationManager == nil) {
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+    }
 }
 
 - (void) initPeripheralManager {
@@ -240,6 +242,7 @@
     [self _handleCallSafely:^CDVPluginResult *(CDVInvokedUrlCommand * command) {
 
         [self initPeripheralManager];
+        [self initLocationManager];
 
         return [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     } :command];
