@@ -45,7 +45,9 @@
 }
 
 - (void) initPeripheralManager {
-    self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
+    if (self.peripheralManager == nil) {
+        self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
+    }
 }
 
 - (void) pauseEventPropagationToDom {
