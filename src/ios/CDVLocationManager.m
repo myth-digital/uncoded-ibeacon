@@ -239,13 +239,9 @@
 }
 
 - (void)initPlugin:(CDVInvokedUrlCommand*)command {
-    [self _handleCallSafely:^CDVPluginResult *(CDVInvokedUrlCommand * command) {
 
-        [self initPeripheralManager];
-        [self initLocationManager];
-
-        return [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    } :command];
+    [self initPeripheralManager];
+    [self initLocationManager];
 
 }
 
